@@ -1,7 +1,7 @@
 var express = require("express");
 var cors = require("cors");
-var api = require('./src/api/api.js');
 var app = express();
+var routes = require("./routes/core.js");
 
 module.exports = function(){
     app.all("*",function(req,res,next){
@@ -18,25 +18,7 @@ module.exports = function(){
     });
 
     app.use(express.static(__dirname + '/src'));
-
-    app.use(function(req,res,next){
-        if(req.url === "/"){
-            res.sendFile('/index.html');
-        }else{
-            next();
-        }
-    });
-    app.use(function(req,res,next){
-        if(req.url === "/api/getInfo"){
-            res.send(api.getInfo());
-        }else{
-            next();
-        }
-    });
-    
-    // app.get('/',function(req,res){
-    //     app.redirect('./src/index.html');
-    // });
+    app.use('/',routes);
 
     app.listen(3000, function () {
       console.log('server listening at http://localhost:3000');
