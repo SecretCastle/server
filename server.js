@@ -12,7 +12,6 @@ rl.prompt();
 rl.on('line',function(line){
     switch (line.trim()) {
         case "http":
-            //server_http.init();
             server_http();
             break;
         case "websocket":
