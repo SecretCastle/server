@@ -15,7 +15,7 @@ router.get('/getAll',function(req,res){
                 "data":results
             }
         }
-        res.send(results);
+        res.json(results);
     })
 });
 router.get('/me',function(req,res){

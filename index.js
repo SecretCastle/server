@@ -1,6 +1,7 @@
 var readline = require("readline");
 var server_http = require('./server_http.js');
 var server_websocket = require('./server_websocket.js');
+var shell = require("./lib/shell.js");
 var rl = readline.createInterface({
     input : process.stdin,
     output : process.stdout
@@ -12,6 +13,7 @@ rl.prompt();
 rl.on('line',function(line){
     switch (line.trim()) {
         case "http":
+            shell("http://localhost:3000");
             server_http();
             break;
         case "websocket":
