@@ -7,7 +7,7 @@ var rl = readline.createInterface({
     output : process.stdout
 });
 
-rl.setPrompt('请输入你想执行的服务器("http","websocket") >');
+rl.setPrompt('请输入你想执行的服务器("http","ws") >');
 rl.prompt();
 
 rl.on('line',function(line){
@@ -16,9 +16,11 @@ rl.on('line',function(line){
             shell("http://localhost:3000");
             server_http();
             break;
-        case "websocket":
-            console.log("websocket 开发中~~~!!");
-            rl.close();
+        case "ws":
+            // console.log("websocket 开发中~~~!!");
+            // rl.close();
+            shell("http://localhost:3001");
+            server_websocket();
             break;
         case "close":
             rl.close();
