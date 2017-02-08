@@ -10,7 +10,7 @@ module.exports = function(){
       res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
 
       if (req.method == 'OPTIONS') {
-        res.send(200); /让options请求快速返回/
+        res.send(200); 
       }
       else {
         next();
@@ -23,7 +23,7 @@ module.exports = function(){
     app.use(express.static(__dirname + '/static'));
     app.use('/',routes);
     app.use('/web',routes_web);
-    
+
     app.listen(3000, function () {
       console.log('server listening at http://localhost:3000');
     });

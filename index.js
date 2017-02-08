@@ -7,7 +7,7 @@ var rl = readline.createInterface({
     output : process.stdout
 });
 
-rl.setPrompt('请输入你想执行的服务器("http","websocket")> ');
+rl.setPrompt('请输入你想执行的服务器("http","websocket") >');
 rl.prompt();
 
 rl.on('line',function(line){
