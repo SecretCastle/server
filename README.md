@@ -1,5 +1,6 @@
 # server
-http&amp;websocket server
+
+	本地服务器和websocket服务器
 
 本地服务器
 
@@ -13,7 +14,12 @@ http&amp;websocket server
 	
 			http
 	
-	运行本地服务器
+		浏览器打开
+			
+			http://localhost:3000
+		
+		路由默认打开的是static文件夹里的index.html
+		
 	
 	* websocket
 
