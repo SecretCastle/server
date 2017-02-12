@@ -5,7 +5,7 @@ var app = express();
 //建立全局的client对象
 var client_device = [];
 
-module.exports = function(){    
+module.exports = function(){
     var wss =  new WebsocketServer({port:8001});
     wss.on('connection',function(ws){
         client_device.push({
@@ -27,7 +27,4 @@ module.exports = function(){
             device[i].cliend_ws.send(data)
         }
     }
-
 }
-
-
