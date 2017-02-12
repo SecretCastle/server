@@ -12,7 +12,9 @@ module.exports = function(){
             "cliend_ws" : ws
         });
         ws.on('message',function(message){
-            send_msg(message,client_device)
+            if(message){
+                send_msg(message,client_device);
+            }
         });
         ws.on('close',function(){
             //global.gc();  //调用回收内存
@@ -25,6 +27,7 @@ module.exports = function(){
             device[i].cliend_ws.send(data)
         }
     }
+
 }
 
 
