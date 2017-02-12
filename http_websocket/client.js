@@ -28,4 +28,3 @@ var DA = {
         ws.send(JSON.stringify(options));
     }
 }
-
