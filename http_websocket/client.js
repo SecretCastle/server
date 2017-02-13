@@ -1,3 +1,28 @@
+var DA = {
+    DATA :{
+        "OnOff_Power":{
+            "value":"1"
+        },
+        "WorkMode":{
+            "value" : "0"
+        },
+        "OnOff_Light":{
+            "value" : "0"
+        }
+    },
+    //SIM 阿里智能的下发数据
+    setDeviceStatus:function(id,options){
+        ws.send(JSON.stringify(options));
+    },
+    //SIM 阿里智能的数据获取
+    getDeviceStatus:function(id,callback){
+        callback(this.DATA);
+    },
+    sendDataToFront:function(callback){
+        callback(DA.DATA)
+    }
+}
+
 var ws = new WebSocket("ws://localhost:8001/");
 //链接上服务器
 ws.onopen = function(){
@@ -5,12 +30,8 @@ ws.onopen = function(){
 }
 
 //服务端发来的消息
-ws.onmessage = function(e){
-    if(e.data){
-        let res = JSON.parse(e.data);
-        
-    }
-}
+
+ws.onmessage = getDataFromServer
 
 //服务端关闭
 ws.onclose = function(){
@@ -22,13 +43,13 @@ ws.onerror = function(err){
 }
 
 
-var DA = {
-    //SIM 阿里智能的下发数据
-    setDeviceStatus:function(id,options){
-        ws.send(JSON.stringify(options));
-    },
-    bindPushData:function(callback){
-        callback(data);
+function getDataFromServer(e){
+    if(e.data){
+        var d = JSON.parse(e.data);
+        console.log(d);
+        for(var i in d){
+            DA.DATA[i].value = d[i].value;
+        }
     }
 }
 
