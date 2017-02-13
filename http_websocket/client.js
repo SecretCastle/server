@@ -8,17 +8,17 @@ ws.onopen = function(){
 ws.onmessage = function(e){
     if(e.data){
         let res = JSON.parse(e.data);
-        console.log(res);
+        
     }
 }
 
 //服务端关闭
 ws.onclose = function(){
-    console.log("close");
+    console.log("服务端关闭");
 }
 
 ws.onerror = function(err){
-    console.log(err);
+    console.log("产生错误:=>",err);
 }
 
 
@@ -26,5 +26,9 @@ var DA = {
     //SIM 阿里智能的下发数据
     setDeviceStatus:function(id,options){
         ws.send(JSON.stringify(options));
+    },
+    bindPushData:function(callback){
+        callback(data);
     }
 }
+
