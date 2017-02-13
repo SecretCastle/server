@@ -31,12 +31,17 @@
         </script>
         <script src = "../client.js"></script>
         <script>
+            DA.getDeviceStatus("111",function(res){
+                console.log("getDeviceStatus",res);
+            });
             $(".mode-select .mode-select-box").on("click",function(){
-                console.log("hi")
                 DA.setDeviceStatus("111",{
                     "WorkMode":{
                         "value": $(this).index() + 1
                     }
+                });
+                DA.sendDataToFront(function(res){
+                    console.log(res);
                 });
             });
         </script>

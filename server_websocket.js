@@ -13,7 +13,6 @@ module.exports = function(){
         });
         ws.on('message',function(message){
             if(message){
-                message = JSON.stringify(message);
                 send_msg(message,client_device);
             }
         });
