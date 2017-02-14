@@ -37,4 +37,5 @@
 			wx.connectSocket({
             	url: 'ws://localhost:8001/'
         	})
-        	
+      
+      	control.html为模拟演示下发上报demo

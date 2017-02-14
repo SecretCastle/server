@@ -19,7 +19,7 @@ var DA = {
         callback(this.DATA);
     },
     sendDataToFront:function(callback){
-        callback(DA.DATA)
+        callback(this.DATA)
     }
 }
 
