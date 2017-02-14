@@ -38,4 +38,4 @@
             	url: 'ws://localhost:8001/'
         	})
       
-      	control.html为模拟演示下发上报demo
+      	control.html为模拟演示下发上报demo，可在控制台内检测输出

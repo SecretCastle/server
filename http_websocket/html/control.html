@@ -14,21 +14,6 @@
             <div class="mode-select-box">3</div>
             <div class="mode-select-box">4</div>
         </div>
-        <script>
-            (function (doc, win) {
-            var docEl = doc.documentElement,
-                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-                recalc = function () {
-                var clientWidth = docEl.clientWidth;
-                if (!clientWidth) return;
-                docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-                };
-
-            if (!doc.addEventListener) return;
-            win.addEventListener(resizeEvt, recalc, false);
-            doc.addEventListener('DOMContentLoaded', recalc, false);
-            })(document, window);
-        </script>
         <script src = "../client.js"></script>
         <script>
             DA.getDeviceStatus("111",function(res){
